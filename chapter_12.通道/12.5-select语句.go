@@ -2,7 +2,7 @@
  * @Author: 朽木白
  * @Date: 2022-09-01 11:32:57
  * @LastEditors: 1547702880@qq.com
- * @LastEditTime: 2022-09-01 11:34:58
+ * @LastEditTime: 2022-09-01 11:40:12
  * @Description: 
  */
 package main
@@ -34,6 +34,9 @@ func main() {
 			fmt.Println("received", msg1)
 		case msg2 := <-channel2:
 			fmt.Println("received", msg2)
+		case <-time.After(500 * time.Millisecond):
+			// 指定超时时间
+			fmt.Println("no messages received. giving up.")
 	}
 
 }
